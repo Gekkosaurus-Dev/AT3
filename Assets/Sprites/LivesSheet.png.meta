@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5fa55490aceb1ab4f8179bba60608b85
+guid: 6e8ac7c874a443f42a3b80827ed8000c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,70 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BACKGROUNDTILESFINAL_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 566ed96408869b14480f7f53b6449749
-      internalID: -1474512002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BACKGROUNDTILESFINAL_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71c766c1d7ff03b428ddb1f24d6a7431
-      internalID: 1195489912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BACKGROUNDTILESFINAL_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca5b934de61708a439d5e8093e98b1cc
-      internalID: 1899225990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BACKGROUNDTILESFINAL_3
+      name: LivesSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -183,14 +120,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f621ceb2bc3dff843a0ce1ce73a4133d
-      internalID: 1843095512
+      spriteID: cbafbb7c2c599a446889cba5426cc30e
+      internalID: -1918137452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BACKGROUNDTILESFINAL_4
+      name: LivesSheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -204,29 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0a3f1075e7f21a4985e9249b41b31f0
-      internalID: 894297508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BACKGROUNDTILESFINAL_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7b07852b0b28174388abada8a3464a8
-      internalID: 1204701098
+      spriteID: 688459e7fd4b72d458c66b41456c1119
+      internalID: -243068500
       vertices: []
       indices: 
       edges: []
@@ -242,12 +158,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BACKGROUNDTILESFINAL_2: 1899225990
-      BACKGROUNDTILESFINAL_1: 1195489912
-      BACKGROUNDTILESFINAL_3: 1843095512
-      BACKGROUNDTILESFINAL_0: -1474512002
-      BACKGROUNDTILESFINAL_5: 1204701098
-      BACKGROUNDTILESFINAL_4: 894297508
+      LivesSheet_0: -1918137452
+      LivesSheet_1: -243068500
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
