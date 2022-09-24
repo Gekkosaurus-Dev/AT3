@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-
     public AudioClip playIntro;
     public AudioClip playNormal;
     public AudioSource audioPlayer;
