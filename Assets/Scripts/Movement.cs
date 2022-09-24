@@ -13,9 +13,11 @@ public class Movement : MonoBehaviour
     private Vector3 startPos;
     private Vector3 endPos;
     private bool posLock;
-    public GameObject pacStudent;
 
+    public GameObject pacStudent;
     public Animator movementAnimator;
+    public AudioSource soundEffects;
+    public AudioClip step;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,12 @@ public class Movement : MonoBehaviour
       endPos = pos[arrayPos2];
       //startTime = Time.time;
       duration = 1.5f;
+      playSound();
+    }
+
+    void playSound(){
+      soundEffects.Play();
+      Invoke("playSound", (step.length + 0.5f));
     }
 
     // Update is called once per frame
