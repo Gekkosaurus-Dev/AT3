@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-  /*
-------------> I am well aware that this code is horrendous. I think it's terrible
-but it works! i think!
-    */
+
     public AudioClip playIntro;
     public AudioClip playNormal;
     public AudioSource audioPlayer;
