@@ -32,8 +32,10 @@ public class Movement : MonoBehaviour
       startPos = pos[arrayPos];
       endPos = pos[arrayPos2];
       //startTime = Time.time;
-      duration = 1.5f;
+      duration = 2.0f;
       playSound();
+
+      movementAnimator.SetInteger("Direction",arrayPos2);
     }
 
     void playSound(){
@@ -66,6 +68,7 @@ public class Movement : MonoBehaviour
         startPos = pos[arrayPos];
         endPos = pos[arrayPos2];
         timeElapsed = 0;
+        movementAnimator.SetInteger("Direction",arrayPos2);
       }
     }
 }
