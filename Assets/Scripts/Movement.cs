@@ -22,10 +22,10 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      pos.Add(new Vector3(1.5f, -0.5f, 0.0f));
-      pos.Add(new Vector3(6.5f, -0.5f, 0.0f));
-      pos.Add(new Vector3(6.5f, -4.5f, 0.0f));
-      pos.Add(new Vector3(1.5f, -4.5f, 0.0f));
+      pos.Add(new Vector3(1.0f, -1.0f, 0.0f));
+      pos.Add(new Vector3(6.0f, -1.0f, 0.0f));
+      pos.Add(new Vector3(6.0f, -5.0f, 0.0f));
+      pos.Add(new Vector3(1.0f, -5.0f, 0.0f));
       arrayPos = 0;
       arrayPos2 = 1;
       pacStudent.transform.position = pos[arrayPos];
