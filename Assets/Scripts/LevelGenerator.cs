@@ -56,12 +56,153 @@ public class LevelGenerator : MonoBehaviour
       int tile = levelMap[row, column];
       if (tile != 0){
         tile = tile - 1;
-        Instantiate(tiles[tile], new Vector3(column, row*(-1), 0), Quaternion.Euler(new Vector3(0, 0, 0))); //top left quadrant
-        Instantiate(tiles[tile], new Vector3((27-column), row*(-1), 0), Quaternion.Euler(new Vector3(0, 0, 0))); //top right quadrant
-        Instantiate(tiles[tile], new Vector3((column),((-28) - (row*(-1))), 0), Quaternion.Euler(new Vector3(0, 0, 0))); //bottom left
-        Instantiate(tiles[tile], new Vector3((27-column), ((-28) - (row*(-1))), 0), Quaternion.Euler(new Vector3(0, 0, 0))); //bottom right
+        int rotation1 = 0;
+        int rotation2 = 0;
+        int rotation3 = 0;
+        int rotation4 = 0;
+
+        int aboveTile = -1;
+        int belowTile = -1;
+        int leftTile = -1;
+        int rightTile = -1;
+
+        //checking surrounding tiles
+        if (row == 0 && column == 0){
+          rotation1 = 180;
+          rotation2 = rotation1 - 90;//90;
+          rotation3 = rotation1 - 270;//-90;
+          rotation4 = rotation1 - 180; //0;
+        }
+        else {
+          if (row == 0){ //top row
+            belowTile = levelMap[row + 1, column] - 1;
+          }
+          else if (row == 14){
+            aboveTile = levelMap[row - 1, column] - 1;
+          }
+          else{
+            aboveTile = levelMap[row - 1, column] - 1;
+            belowTile = levelMap[row + 1, column] - 1;
+          }
+
+          if (column == 0){ //top row
+            rightTile = levelMap[row, column + 1] - 1;
+          }
+          else if (column == 13){
+            leftTile = levelMap[row, column - 1] - 1;
+          }
+          else{
+            rightTile = levelMap[row, column + 1] - 1;
+            leftTile = levelMap[row, column - 1] - 1;
+          }
+
+
+            if (tile == 0){
+              if ( (rightTile == 0) || (rightTile == 1) || (rightTile == 6) ){
+                if ( (aboveTile == 0) || (aboveTile == 1) || (aboveTile == 6) ){
+                  rotation1 = 270;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+                else if ( (belowTile == 0) || (belowTile == 1) || (belowTile == 6) ){
+                  rotation1 = 180;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+              }
+              else if ( (leftTile == 0) || (leftTile == 1) || (leftTile == 6) ){
+                if ( (aboveTile == 0) || (aboveTile == 1) || (aboveTile == 6) ){
+                  rotation1 = 0;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+                else if ( (belowTile == 0) || (belowTile == 1) || (belowTile == 6) ){
+                  rotation1 = 90;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+              }
+            }
+
+            if (tile == 1){
+              if ( ((aboveTile == 0) || (aboveTile == 1) || (aboveTile == 6)) && ((belowTile == 0) || (belowTile == 1) || (belowTile == 6)) ){
+                rotation1 = 90;
+                rotation2 = 90;
+                rotation3 = 90;
+                rotation4 = 90;
+              }
+              else if( ((aboveTile == 0) || (aboveTile == 1) || (aboveTile == 6)) && (rightTile != 0) && (rightTile != 1) && (rightTile != 6) ){
+                rotation1 = 90;
+                rotation2 = 90;
+                rotation3 = 90;
+                rotation4 = 90;
+              }
+            }
+
+            if (tile == 2){
+              if ( (rightTile == 2) || (rightTile == 3) || (rightTile == 6) ){
+                if ( (aboveTile == 2) || (aboveTile == 3) || (aboveTile == 6) ){
+                  rotation1 = 270;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+                else if ( (belowTile == 2) || (belowTile == 3) || (belowTile == 6) ){
+                  rotation1 = 180;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+              }
+              else if ( (leftTile == 2) || (leftTile == 3) || (leftTile == 6) ){
+                if ( (aboveTile == 2) || (aboveTile == 3) || (aboveTile == 6) ){
+                  rotation1 = 0;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+                else if ( (belowTile == 2) || (belowTile == 3) || (belowTile == 6) ){
+                  rotation1 = 90;
+                  rotation3 = rotation1 - 90;//90;
+                  rotation2 = rotation1 - 270;//-90;
+                  rotation4 = rotation1 - 180; //0;
+                }
+              }
+            }
+
+            if (tile == 3){
+              if ( ((aboveTile == 2) || (aboveTile == 3) || (aboveTile == 6)) && ((belowTile == 2) || (belowTile == 3) || (belowTile == 6)) ){
+                rotation1 = 90;
+                rotation2 = 90;
+                rotation3 = 90;
+                rotation4 = 90;
+              }
+              else if( ((aboveTile == 2) || (aboveTile == 3) || (aboveTile == 6)) && (rightTile != 2) && (rightTile != 3) && (rightTile != 6) ){
+                rotation1 = 90;
+                rotation2 = 90;
+                rotation3 = 90;
+                rotation4 = 90;
+              }
+            }
+
+            if (tile == 6){
+
+            }
+
+          }
+
+
+        Instantiate(tiles[tile], new Vector3(column, row*(-1), 0), Quaternion.Euler(new Vector3(0, 0, rotation1))); //top left quadrant
+        Instantiate(tiles[tile], new Vector3((27-column), row*(-1), 0), Quaternion.Euler(new Vector3(0, 0, rotation2))); //top right quadrant
+        Instantiate(tiles[tile], new Vector3((column),((-28) - (row*(-1))), 0), Quaternion.Euler(new Vector3(0, 0, rotation3))); //bottom left
+        Instantiate(tiles[tile], new Vector3((27-column), ((-28) - (row*(-1))), 0), Quaternion.Euler(new Vector3(0, 0, rotation4))); //bottom right
       }
     }
+
 
 
     // Update is called once per frame
