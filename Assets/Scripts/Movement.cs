@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     private Vector3 endPos;
     private bool posLock;
 
-    public GameObject pacStudent;
+    public GameObject obj;
     public Animator movementAnimator;
     public AudioSource soundEffects;
     public AudioClip step;
@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
       pos.Add(new Vector3(1.0f, -5.0f, 0.0f));
       arrayPos = 0;
       arrayPos2 = 1;
-      pacStudent.transform.position = pos[arrayPos];
+      obj.transform.position = pos[arrayPos];
       startPos = pos[arrayPos];
       endPos = pos[arrayPos2];
       //startTime = Time.time;
@@ -46,12 +46,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      float distance = Vector3.Distance(pacStudent.transform.position, endPos);
-      //Debug.Log("distance to point = " + distance);
-      //Debug.Log("current position" + pacStudent.transform.position);
-      //Debug.Log("end position" + endPos);
-      if (distance > 0.01f){
-        pacStudent.transform.position = Vector3.Lerp(startPos, endPos, (timeElapsed/duration));
+      float distance = Vector3.Distance(obj.transform.position, endPos);
+        //Debug.Log("distance to point = " + distance);
+        //Debug.Log("current position" + obj.transform.position);
+        //Debug.Log("end position" + endPos);
+        if (distance > 0.01f){
+        obj.transform.position = Vector3.Lerp(startPos, endPos, (timeElapsed/duration));
         timeElapsed += Time.deltaTime;
       }
       else if ((distance <= 0.01f)){
@@ -64,7 +64,7 @@ public class Movement : MonoBehaviour
         if (arrayPos2 > 3){
           arrayPos2 = 0;
         }
-        pacStudent.transform.position = pos[arrayPos];
+        obj.transform.position = pos[arrayPos];
         startPos = pos[arrayPos];
         endPos = pos[arrayPos2];
         timeElapsed = 0;
