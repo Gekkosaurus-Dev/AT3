@@ -14,7 +14,6 @@ public class Movement : MonoBehaviour
     private Vector3 endPos;
     private bool posLock;
 
-
     public GameObject pacStudent;
     public Animator movementAnimator;
     public AudioSource soundEffects;
