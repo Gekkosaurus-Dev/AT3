@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      pos.Add(new Vector3(-13.0f, -1.0f, 0.0f));      pos.Add(new Vector3(-7.0f, -1.0f, 0.0f));
+      pos.Add(new Vector3(-13.0f, -1.35f, 0.0f));      pos.Add(new Vector3(-7.0f, -1.35f, 0.0f));
 
       pos.Add(new Vector3(-7.0f, -4.0f, 0.0f));       pos.Add(new Vector3(-13.0f, -4.0f, 0.0f));
       arrayPos = 0;
