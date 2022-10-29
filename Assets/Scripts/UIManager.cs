@@ -18,6 +18,12 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void LoadTitleScreen()
+    {
+        //DontDestroyOnLoad(this);
+        SceneManager.LoadSceneAsync(0);
+    }
+
     public void LoadFirstLevel()
     {
         //DontDestroyOnLoad(this);
