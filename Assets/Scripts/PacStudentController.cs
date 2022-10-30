@@ -8,6 +8,13 @@ public class PacStudentController : MonoBehaviour
 {
 
     public GameObject pacStudent;
+    public Tilemap tileMap;
+    public Animator movementAnimator;
+    public AudioSource soundEffects;
+    public ParticleSystem dust;
+    public AudioClip step;
+    public AudioClip pellet;
+    //public AudioClip hitWall;
 
     private Vector3 currentPos;
     private Vector3 checkPos;
@@ -15,9 +22,6 @@ public class PacStudentController : MonoBehaviour
     private KeyCode lastInput;
     private KeyCode currentInput;
     private float speed;
-
-    public Tilemap tileMap;
-
 
     //current position = pacStudent.transform.position;
 
@@ -27,7 +31,15 @@ public class PacStudentController : MonoBehaviour
         transform.position = new Vector3(1.0f, -1.0f, 0.0f);
         targetPos = new Vector3(1.0f, -1.0f, 0.0f);
         speed = 2.0f;
+        movementAnimator.enabled = false;
     }
+
+    /*IEnumerator Sound(){
+      soundEffects.Play();
+      yield return new WaitForSeconds(soundEffects.clip.length);
+      soundEffects.clip = step;
+      soundEffects.Play();
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -62,33 +74,48 @@ public class PacStudentController : MonoBehaviour
           pacStudent.transform.position = targetPos;
           currentPos = transform.position;
           if (tryMovement(lastInput) == true){
+            createDust();
+            soundEffects.Play();
             targetPos = checkPos;
             currentInput = lastInput;
           }
           else if (tryMovement (currentInput) == true){
+            createDust();
+            soundEffects.Play();
             targetPos = checkPos;
           }
+          else{
+            movementAnimator.enabled = false;
+            //soundEffects.clip = hitWall;
+            //soundEffects.Play();
+          }
         }
-
       }
-
     }
 
   private bool tryMovement( KeyCode input ){
     if (input == KeyCode.W){
       checkPos = new Vector3(currentPos.x, currentPos.y + 1.0f, currentPos.z);
+      movementAnimator.enabled = true;
+      movementAnimator.SetInteger("Direction",0);
       return(checkPosition(checkPos));
     }
     else if (input == KeyCode.A){
       checkPos = new Vector3(currentPos.x - 1.0f, currentPos.y, currentPos.z);
+      movementAnimator.enabled = true;
+      movementAnimator.SetInteger("Direction",3);
       return(checkPosition(checkPos));
     }
     else if (input == KeyCode.S){
       checkPos = new Vector3(currentPos.x, currentPos.y - 1.0f, currentPos.z);
+      movementAnimator.enabled = true;
+      movementAnimator.SetInteger("Direction",2);
       return(checkPosition(checkPos));
     }
     else if (input == KeyCode.D){
       checkPos = new Vector3(currentPos.x + 1.0f, currentPos.y, currentPos.z);
+      movementAnimator.enabled = true;
+      movementAnimator.SetInteger("Direction",1);
       return(checkPosition(checkPos));
     }
     else{
@@ -105,17 +132,22 @@ public class PacStudentController : MonoBehaviour
         return false;
       }
       else if ((tileAtPosition.name == "BACKGROUNDTILESFINAL_5")){
+        soundEffects.clip = pellet;
         return true;
       }
       else{
+        soundEffects.clip = step;
         return true;
       }
     }
     else {
+      soundEffects.clip = step;
       return true;
     }
-
   }
 
+  void createDust(){
+    dust.Play();
+  }
 
 }
