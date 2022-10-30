@@ -20,19 +20,17 @@ public class UIManager : MonoBehaviour
 
     public void LoadTitleScreen()
     {
-        //DontDestroyOnLoad(this);
         SceneManager.LoadSceneAsync(0);
     }
 
     public void LoadFirstLevel()
     {
-        //DontDestroyOnLoad(this);
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void LoadSecondLevel()
+    /*public void LoadSecondLevel()
     {
         //DontDestroyOnLoad(this);
         SceneManager.LoadSceneAsync(2);
-    }
+    }*/
 }
